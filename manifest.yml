@@ -1,0 +1,9 @@
+--- 
+applications: 
+- name: ydsp
+  memory: 128M
+  instances: 1
+  host: ydsp
+  domain: cfapps.io
+  path: .
+  command: node app.js
