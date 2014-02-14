@@ -1,4 +1,4 @@
-var PORT = process.argv[2] || 8000;
+var PORT = process.env.VCAP_APP_PORT || 8000;
 var http = require("http");
 var url = require("url");
 var fs = require("fs");
