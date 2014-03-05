@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>街景自动旋转</title>
+    <meta charset="UTF-8">
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=9fc0c059ba8594894f8202607dd69945"></script>
+    <script src="http://libs.baidu.com/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+         $(function(){
+
+             window.pano = new qq.maps.Panorama($('#rmap').get(0), {
+                 pano: '10037Q00000000002250005',
+                 disableMove: false,
+                 pov: {
+                     heading: 30,
+                     pitch: 15
+                 },
+                 zoom: 1
+             });
+
+             setInterval(function () {
+                 var pov = pano.getPov();
+                 var heading = pano.getPov().heading;
+                 heading = .04 + heading;
+                 pov.heading = heading;
+                 if (pov.heading >= 360) {
+                     pov.heading = 0;
+                 }
+                 pano.setPov(pov)
+             }, 10);
+
+
+         });
+
+    </script>
+</head>
+<body>
+    <div style="width: 980px; height: 560px;" id="rmap"></div>
+</body>
+</html>

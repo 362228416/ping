@@ -1,10 +1,10 @@
 --- 
 applications: 
-- name: ydsp
+- name: static
   buildpack: https://github.com/cloudfoundry/heroku-buildpack-nodejs.git
   memory: 128M
   instances: 1
-  host: ydsp
+  host: static
   domain: cfapps.io
   path: .
   command: node app.js
